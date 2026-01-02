@@ -1,121 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robert McCray | Systems Architect</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robert McCray | Secure Data Systems Architect</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Secure, cloud-native data platforms built for regulated environments (PHI/PII). Multi-tenant architecture, audit-ready security-by-design, and governed analytics." />
+  <meta name="author" content="Robert McCray" />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Robert McCray | Secure Data Systems Architect" />
+  <meta property="og:description" content="Security-by-design cloud data systems: multi-tenant, audit-ready, and built for regulated environments." />
+  <meta property="og:image" content="https://robertmccray.github.io/assets/images/og-cover.png" />
+  <meta property="og:url" content="https://robertmccray.github.io" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#security">Security</a>
-        <a href="#innovation">Innovation</a>
-        <a href="#skills">Skills</a>
-        <a href="mailto:mccrayrobert26@gmail.com">Contact</a>
-    </nav>
+  <!-- Progress bar -->
+  <div class="progress-wrap" aria-hidden="true">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
 
-    <section class="hero">
-        <div class="badge-container">
-            <div class="badge">AVAILABLE FOR SECURE CLOUD OPPORTUNITIES</div>
+  <!-- Sticky Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#home" aria-label="Go to Home">
+        RM
+        <span class="nav-brand-sub">Secure Systems</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#security" class="nav-link">Security</a>
+        <a href="#innovation" class="nav-link">Innovation</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="nav-cta">
+        <a class="btn btn-outline btn-sm" href="assets/images/og-cover.png" download aria-label="Download Resume (replace file later)">
+          Download Resume
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="container hero-inner">
+      <div class="badge-container reveal">
+        <div class="badge">AVAILABLE FOR SECURE CLOUD OPPORTUNITIES</div>
+      </div>
+
+      <h1 class="reveal">
+        Architecting <span class="accent">Secure Data Systems</span>
+      </h1>
+
+      <p class="hero-sub reveal">
+        I design secure, cloud-native data platforms — <b>multi-tenant</b>, <b>audit-ready</b>, and built for regulated environments (PHI/PII).
+      </p>
+
+      <div class="hero-chips reveal" role="list">
+        <a class="chip" href="projects/mhd.html">MHD Case Study</a>
+        <a class="chip" href="#security">Security Model</a>
+        <a class="chip" href="#innovation">Architecture Work</a>
+      </div>
+
+      <div class="btn-group reveal">
+        <a class="btn" href="projects/mhd.html">View MHD Case Study</a>
+        <a class="btn btn-outline" href="mailto:mccrayrobert26@gmail.com">Email Me</a>
+        <a class="btn btn-outline" href="https://linkedin.com/in/robert-mccray-467613195" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+
+      <div class="hero-proof reveal">
+        <div class="proof-card">
+          <div class="proof-title">Proof Artifacts</div>
+          <div class="proof-links">
+            <a href="projects/mhd.html#architecture" class="proof-link">Architecture Diagram</a>
+            <a href="projects/mhd.html#security" class="proof-link">Security Controls</a>
+            <a href="projects/mhd.html#roadmap" class="proof-link">Production Roadmap</a>
+          </div>
         </div>
-        <h1>Architecting <span>Secure Data Systems</span></h1>
-        <p>Lead Software Engineer specializing in HIPAA-compliant, multi-tenant cloud platforms and governed data ecosystems.</p>
-        <div class="btn-group">
-            <button onclick="window.open('https://linkedin.com/in/robert-mccray-467613195')">Start a Conversation</button>
-            <button class="btn-outline" onclick="window.open('https://sites.google.com/view/rmactech/architecture-brief-2025')">Architecture Briefs →</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- METRICS (Reframed = believable) -->
+  <section class="metrics">
+    <div class="container metrics-container reveal">
+      <div class="metric-card">
+        <h2>5+</h2>
+        <p>Years Building Systems</p>
+      </div>
+      <div class="metric-card">
+        <h2>Multi</h2>
+        <p>Tenant + RBAC Patterns</p>
+      </div>
+      <div class="metric-card">
+        <h2>PHI</h2>
+        <p>Audit-Ready Data Flows</p>
+      </div>
+      <div class="metric-card">
+        <h2>IaC</h2>
+        <p>Guardrails + Repeatability</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY -->
+  <section id="security" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Security-By-Design</h2>
+      <p class="section-subtitle reveal">
+        Defense-in-depth patterns for highly regulated environments — identity-first access, segmented networks, and auditable data flows.
+      </p>
+
+      <!-- Mini System Story -->
+      <div class="mini-diagram reveal">
+        <div class="mini-node">Identity<br><span>Entra ID / JWT</span></div>
+        <div class="mini-arrow">→</div>
+        <div class="mini-node">Gateway<br><span>APIM / WAF</span></div>
+        <div class="mini-arrow">→</div>
+        <div class="mini-node">Services<br><span>AKS / Containers</span></div>
+        <div class="mini-arrow">→</div>
+        <div class="mini-node">Data<br><span>DB + Storage</span></div>
+        <div class="mini-arrow">→</div>
+        <div class="mini-node">Analytics<br><span>Governed Access</span></div>
+      </div>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Zero-Trust Architecture</h3>
+          <p>Identity-driven access via Entra ID, least-privilege IAM, and continuous verification for every request.</p>
+          <div class="card-footer">
+            <span class="pill">RBAC</span>
+            <span class="pill">OAuth/JWT</span>
+            <span class="pill">Least Privilege</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Blast Radius Control</h3>
+          <p>Isolated boundaries with VNET/VPC segmentation, private endpoints, and scoped network policies.</p>
+          <div class="card-footer">
+            <span class="pill">Private Endpoints</span>
+            <span class="pill">NSGs</span>
+            <span class="pill">Segmentation</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Automated Compliance</h3>
+          <p>Security guardrails enforced through IaC and pipelines, ensuring repeatable and compliant infrastructure.</p>
+          <div class="card-footer">
+            <span class="pill">Terraform</span>
+            <span class="pill">Policy-as-Code</span>
+            <span class="pill">CI/CD</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- INNOVATION -->
+  <section id="innovation" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Innovation in Action</h2>
+      <p class="section-subtitle reveal">
+        Real systems work — engineered for security, reliability, and real-world constraints.
+      </p>
+
+      <div class="grid">
+        <!-- MHD -->
+        <article class="card project-card reveal">
+          <div class="project-kicker">PLATFORM ENGINEERING</div>
+          <h3>MHD Health System</h3>
+          <p>A secure multi-tenant platform for PHI ownership and portability with governed analytics and controlled sharing.</p>
+
+          <div class="skill-list">
+            <span class="skill-tag">AKS</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Mongo/Cosmos</span>
+            <span class="skill-tag">Snowflake</span>
+            <span class="skill-tag">Terraform</span>
+          </div>
+
+          <div class="actions">
+            <a class="btn btn-outline btn-sm" href="projects/mhd.html">Case Study</a>
+            <button class="btn btn-sm" data-modal="mhdModal">Quick Preview</button>
+            <a class="btn btn-outline btn-sm" href="projects/mhd.html#architecture">Architecture</a>
+          </div>
+        </article>
+
+        <!-- RTS -->
+        <article class="card project-card reveal">
+          <div class="project-kicker">SYSTEMS DESIGN</div>
+          <h3>RTS Contract Tracking</h3>
+          <p>Enterprise workflow system processing high volumes with resilient sync patterns, performance tuning, and operational guardrails.</p>
+
+          <div class="skill-list">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">Docker</span>
+          </div>
+
+          <div class="actions">
+            <a class="btn btn-outline btn-sm" href="projects/rts.html">Case Study</a>
+            <button class="btn btn-sm" data-modal="rtsModal">Quick Preview</button>
+            <a class="btn btn-outline btn-sm" href="projects/rts.html#architecture">Architecture</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Advanced Technology Stack</h2>
+      <p class="section-subtitle reveal">Focused depth across cloud, security, data platforms, and reliability.</p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Cloud Infrastructure</h3>
+          <div class="skill-list">
+            <span class="skill-tag">Azure (AKS, Key Vault)</span>
+            <span class="skill-tag">AWS (VPC, IAM)</span>
+            <span class="skill-tag">Blob/S3</span>
+            <span class="skill-tag">APIM/Gateway</span>
+            <span class="skill-tag">Private Networking</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Infrastructure as Code</h3>
+          <div class="skill-list">
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Helm</span>
+            <span class="skill-tag">GitOps</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Engineering & Ops</h3>
+          <div class="skill-list">
+            <span class="skill-tag">Python (FastAPI)</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Observability</span>
+            <span class="skill-tag">Incident Thinking</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <footer id="contact" class="footer-cta">
+    <div class="container">
+      <h2 class="reveal">Let’s Build the Future Together</h2>
+      <p class="reveal">
+        If you need secure, production-minded architecture — I can help turn complex data requirements into resilient systems.
+      </p>
+
+      <div class="btn-group reveal">
+        <a class="btn" href="mailto:mccrayrobert26@gmail.com">Email Me</a>
+        <a class="btn btn-outline" href="https://linkedin.com/in/robert-mccray-467613195" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <a class="btn btn-outline" href="projects/mhd.html">View MHD Case Study</a>
+      </div>
+
+      <p class="footer-mini reveal">© 2026 Robert McCray Jr. | Architecting the future of secure systems.</p>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+  <div class="modal" id="mhdModal" aria-hidden="true" role="dialog" aria-label="MHD Preview">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div class="project-kicker">PLATFORM ENGINEERING</div>
+          <h3>MHD Health System</h3>
         </div>
-    </section>
+        <button class="icon-btn" data-close aria-label="Close modal">✕</button>
+      </div>
+      <p class="modal-text">
+        Secure multi-tenant platform for storing, sharing, and governing PHI/PII with audit-ready access controls and analytics-ready pipelines.
+      </p>
+      <ul class="modal-bullets">
+        <li>JWT auth + RBAC + audited access</li>
+        <li>Secure share links (time-bound, scoped)</li>
+        <li>Async ingestion patterns for NLP/extraction</li>
+        <li>Governed analytics handoff to Snowflake</li>
+      </ul>
+      <div class="actions">
+        <a class="btn" href="projects/mhd.html">Open Case Study</a>
+        <a class="btn btn-outline" href="projects/mhd.html#architecture">Architecture</a>
+        <a class="btn btn-outline" href="projects/mhd.html#security">Security</a>
+      </div>
+    </div>
+  </div>
 
-    <section class="metrics-container">
-        <div class="metric-card"><h2>5+</h2><p>Years Experience</p></div>
-        <div class="metric-card"><h2>99.9%</h2><p>System Reliability</p></div>
-        <div class="metric-card"><h2>80%</h2><p>API Accuracy</p></div>
-        <div class="metric-card"><h2>70%</h2><p>Manual Reduction</p></div>
-    </section>
-
-    <section id="security">
-        <h2 class="section-title">Security-By-Design</h2>
-        <p class="section-subtitle">Implementing Azure Well-Architected Framework principles for highly regulated environments.</p>
-        <div class="grid">
-            <div class="card">
-                <h3>Zero-Trust Architecture</h3>
-                <p>Enforcing identity-driven access controls via Entra ID, least-privilege IAM, and continuous verification for every data request.</p>
-            </div>
-            <div class="card">
-                <h3>Blast Radius Control</h3>
-                <p>Designing isolated network boundaries through VNET encapsulation, Private Endpoints, and NSGs to ensure security isolation.</p>
-            </div>
-            <div class="card">
-                <h3>Automated Compliance</h3>
-                <p>Utilizing Terraform to bake security guardrails directly into the deployment pipeline, ensuring compliant resource creation.</p>
-            </div>
+  <div class="modal" id="rtsModal" aria-hidden="true" role="dialog" aria-label="RTS Preview">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div class="project-kicker">SYSTEMS DESIGN</div>
+          <h3>RTS Contract Tracking</h3>
         </div>
-    </section>
+        <button class="icon-btn" data-close aria-label="Close modal">✕</button>
+      </div>
+      <p class="modal-text">
+        High-volume workflow system optimized for reliable sync, performance, and operational safety under real constraints.
+      </p>
+      <ul class="modal-bullets">
+        <li>Resilient ingestion + sync workflows</li>
+        <li>PostgreSQL schema + query optimization</li>
+        <li>Redis caching for hot reads</li>
+        <li>Containerized deploy + operational guardrails</li>
+      </ul>
+      <div class="actions">
+        <a class="btn" href="projects/rts.html">Open Case Study</a>
+        <a class="btn btn-outline" href="projects/rts.html#architecture">Architecture</a>
+        <a class="btn btn-outline" href="projects/rts.html#results">Results</a>
+      </div>
+    </div>
+  </div>
 
-    <section id="innovation">
-        <h2 class="section-title">Innovation in Action</h2>
-        <div class="grid">
-            <div class="card">
-                <span style="color: var(--primary-orange); font-weight: 800; font-size: 0.75rem; letter-spacing: 1px;">PLATFORM ENGINEERING</span>
-                <h3>MHD Health System</h3>
-                <p>A secure multi-tenant platform designed for PHI ownership and portability using AKS and governed analytics in Snowflake.</p>
-                <div class="skill-list">
-                    <span class="skill-tag">Azure AKS</span> <span class="skill-tag">Snowflake</span> <span class="skill-tag">Terraform</span> <span class="skill-tag">FHIR R4</span>
-                </div>
-                <button class="btn-outline" style="margin-top: 25px;" onclick="window.open('https://sites.google.com/view/rmactech/architecture-brief-2025')">Architecture Guide</button>
-            </div>
-            <div class="card">
-                <span style="color: var(--primary-orange); font-weight: 800; font-size: 0.75rem; letter-spacing: 1px;">SYSTEMS DESIGN</span>
-                <h3>RTS Contract Tracking</h3>
-                <p>Enterprise-scale system processing hundreds of thousands of records with real-time accuracy and resilient sync workflows.</p>
-                <div class="skill-list">
-                    <span class="skill-tag">Node.js</span> <span class="skill-tag">PostgreSQL</span> <span class="skill-tag">Redis</span> <span class="skill-tag">Docker</span>
-                </div>
-                <button class="btn-outline" style="margin-top: 25px;">Case Study</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <h2 class="section-title">Advanced Technology Stack</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Cloud Infrastructure</h3>
-                <div class="skill-list">
-                    <span class="skill-tag">Azure AKS/EKS</span> <span class="skill-tag">S3 & Blob</span> <span class="skill-tag">VPC/VNET</span> 
-                    <span class="skill-tag">Synapse</span> <span class="skill-tag">Snowflake</span> <span class="skill-tag">API Gateway</span>
-                </div>
-            </div>
-            <div class="card">
-                <h3>Infrastructure as Code</h3>
-                <div class="skill-list">
-                    <span class="skill-tag">Terraform</span> <span class="skill-tag">Docker</span> <span class="skill-tag">Kubernetes</span> 
-                    <span class="skill-tag">GitHub Actions</span> <span class="skill-tag">Helm Charts</span> <span class="skill-tag">GitOps</span>
-                </div>
-            </div>
-            <div class="card">
-                <h3>Engineering & Ops</h3>
-                <div class="skill-list">
-                    <span class="skill-tag">Python (FastAPI)</span> <span class="skill-tag">SQL</span> <span class="skill-tag">Node.js</span> 
-                    <span class="skill-tag">PagerDuty</span> <span class="skill-tag">Azure Monitor</span> <span class="skill-tag">CI/CD</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer-cta">
-        <h2>Let's Build the Future Together</h2>
-        <p>Ready to transform complex data requirements into production reality? I am here to architect solutions that drive impact and security at scale.</p>
-        <div class="btn-group">
-            <button onclick="window.open('mailto:mccrayrobert26@gmail.com')">Start Conversation</button>
-            <button class="btn-outline" onclick="window.open('https://linkedin.com/in/robert-mccray-467613195')">Connect on LinkedIn</button>
-            <button class="btn-outline" onclick="window.open('https://docs.google.com/document/d/1ZUX5UWkV62phPlBUWq44Mjpg7W4ouPqmCwt_nObF1hE/edit?usp=sharing')">Download Resume</button>
-        </div>
-        <p style="margin-top: 100px; font-size: 0.8rem; color: #475569;">© 2026 Robert McCray Jr. | Architecting the future of secure systems.</p>
-    </footer>
-
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
