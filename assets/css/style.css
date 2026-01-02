@@ -44,27 +44,50 @@ nav a {
 }
 nav a:hover { color: var(--primary-orange); }
 
-/* HERO SECTION */
+/* UPDATED HERO SECTION WITH CLOUD BANNER */
 .hero { 
     padding: 200px 20px 100px; 
     text-align: center; 
-    background: radial-gradient(circle at top, #1e293b 0%, #0b1120 100%); 
+    /* The linear-gradient creates a dark 'tint' overlay so your white text remains readable */
+    background: linear-gradient(
+          rgba(11, 17, 32, 0.85), 
+          rgba(11, 17, 32, 0.95)
+        ), 
+        url('https://images.unsplash.com/photo-1501526066518-8d070b47796d?auto=format&fit=crop&q=80&w=2070'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Creates a smooth parallax scroll effect */
 }
-.hero h1 { font-size: 4rem; margin-bottom: 15px; font-weight: 800; }
-.hero h1 span { color: var(--primary-orange); }
 
-/* CENTERED BADGE PILL */
-.badge-container { display: flex; justify-content: center; margin-bottom: 30px; }
+.hero h1 { 
+    font-size: 4rem; 
+    margin-bottom: 15px; 
+    font-weight: 800; 
+    text-shadow: 0 2px 15px rgba(0,0,0,0.6); /* Adds depth to text against the image */
+}
+
+.hero h1 span { 
+    color: var(--primary-orange); 
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.5); 
+}
+
+/* CENTERED BADGE PILL (Kept the same, just ensured visibility) */
+.badge-container { 
+    display: flex; 
+    justify-content: center; 
+    margin-bottom: 30px; 
+}
+
 .badge { 
-    background: rgba(245, 158, 11, 0.1); 
+    background: rgba(11, 17, 32, 0.6); /* Darkened slightly to pop against the banner */
     color: var(--primary-orange); 
     padding: 10px 24px; 
     border-radius: 50px; 
     font-size: 0.8rem; 
     font-weight: 800;
     border: 1px solid var(--primary-orange);
+    backdrop-filter: blur(4px); /* Modern 'glass' effect */
 }
-
 /* METRICS SECTION */
 .metrics-container { 
     display: flex; 
