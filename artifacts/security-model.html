@@ -1,1 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security Model | Robert McCray</title>
+  <meta name="description" content="Security model: threat boundaries, security controls, audit logging, and compliance-minded patterns for regulated systems." />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
 
+  <div class="progress-wrap" aria-hidden="true">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="../index.html#home">RM <span class="nav-brand-sub">Security Model</span></a>
+      <div class="nav-links">
+        <a class="nav-link" href="../index.html#home">Home</a>
+        <a class="nav-link" href="#overview">Overview</a>
+        <a class="nav-link" href="#threats">Threat Model</a>
+        <a class="nav-link" href="#controls">Controls</a>
+        <a class="nav-link" href="#audit">Audit</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-outline btn-sm" href="../assets/resume.pdf" download>Download Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="overview" class="hero" style="min-height: 58vh;">
+    <div class="cloud-layer" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="badge-container reveal">
+        <div class="badge">SECURITY MODEL — DEFENSE IN DEPTH</div>
+      </div>
+
+      <h1 class="reveal">Security <span class="accent">Model</span></h1>
+      <p class="hero-sub reveal" style="max-width: 980px;">
+        A practical security approach for regulated systems: identity-first access, segmented networking,
+        protected storage, auditable actions, and controlled sharing. Built to support PHI/PII workflows
+        without slowing down product delivery.
+      </p>
+
+      <div class="hero-chips reveal">
+        <a class="chip" href="../projects/mhd.html#security">MHD Controls</a>
+        <a class="chip" href="architecture-work.html">Architecture Work</a>
+        <a class="chip" href="production-roadmap.html">Production Roadmap</a>
+      </div>
+
+      <div class="btn-group reveal">
+        <a class="btn" href="../projects/mhd.html">View MHD Case Study</a>
+        <a class="btn btn-outline" href="../index.html#security">Back to Portfolio</a>
+        <a class="btn btn-outline" href="mailto:mccrayrobert26@gmail.com">Email Me</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">System Security Story</h2>
+      <p class="section-subtitle reveal">
+        Security is implemented as a chain of enforced decisions, not a single feature.
+      </p>
+
+      <div class="mini-diagram reveal">
+        <div class="mini-node">Identity<br><span>Entra ID / JWT</span></div>
+        <div class="mini-arrow">→</div>
+        <div class="mini-node">Gateway<br><span>WAF / APIM</span></div>
+        <div class="mini-arrow">→</div>
+        <div class="mini-node">Services<br><span>AKS / API</span></div>
+        <div class="mini-arrow">→</div>
+        <div class="mini-node">Data<br><span>DB + Blob</span></div>
+        <div class="mini-arrow">→</div>
+        <div class="mini-node">Audit + Alerts<br><span>Logs / SIEM</span></div>
+      </div>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Core Principles</h3>
+          <ul class="modal-bullets">
+            <li><b>Least privilege by default</b> (roles, scopes, tenant boundaries)</li>
+            <li><b>Defense-in-depth</b> (identity, network, app, data)</li>
+            <li><b>Auditability</b> (every sensitive action produces a trail)</li>
+            <li><b>Safe sharing</b> (time-bound, scoped, revocable access)</li>
+            <li><b>Hardening incrementally</b> (roadmap-driven maturity)</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Trust Boundaries</h3>
+          <ul class="modal-bullets">
+            <li><b>Public boundary:</b> browser/mobile → gateway edge</li>
+            <li><b>Service boundary:</b> gateway → internal APIs</li>
+            <li><b>Data boundary:</b> services → DB/blob/private endpoints</li>
+            <li><b>Analytics boundary:</b> curated datasets → governed warehouse</li>
+            <li><b>Admin boundary:</b> privileged actions → strict RBAC + logging</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="threats" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Threat Model</h2>
+      <p class="section-subtitle reveal">
+        A focused set of realistic threats for data platforms handling sensitive information.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Identity & Session Threats</h3>
+          <ul class="modal-bullets">
+            <li>Credential theft / token replay</li>
+            <li>Privilege escalation via weak roles</li>
+            <li>Over-permissioned service accounts</li>
+            <li>Broken access control (tenant data leakage)</li>
+          </ul>
+          <div class="card-footer">
+            <span class="pill">RBAC</span>
+            <span class="pill">JWT scopes</span>
+            <span class="pill">Least privilege</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Data Exfiltration</h3>
+          <ul class="modal-bullets">
+            <li>Public exposure of storage buckets/blobs</li>
+            <li>Excessive query access to PHI/PII tables</li>
+            <li>Insecure sharing links without scope/expiry</li>
+            <li>Analytics warehouse access without governance</li>
+          </ul>
+          <div class="card-footer">
+            <span class="pill">Private endpoints</span>
+            <span class="pill">Encryption</span>
+            <span class="pill">Governed access</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Abuse & Availability</h3>
+          <ul class="modal-bullets">
+            <li>API abuse, brute force, scraping</li>
+            <li>Upload storms (expensive file processing)</li>
+            <li>Queue backlog / job starvation</li>
+            <li>DoS on gateway or hot endpoints</li>
+          </ul>
+          <div class="card-footer">
+            <span class="pill">Rate limits</span>
+            <span class="pill">WAF rules</span>
+            <span class="pill">Async jobs</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Supply Chain & Misconfig</h3>
+          <ul class="modal-bullets">
+            <li>Secrets in code / env leakage</li>
+            <li>Insecure container images</li>
+            <li>Misconfigured network/security groups</li>
+            <li>Weak pipeline permissions</li>
+          </ul>
+          <div class="card-footer">
+            <span class="pill">Key Vault</span>
+            <span class="pill">CI checks</span>
+            <span class="pill">IaC guardrails</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="controls" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Security Controls</h2>
+      <p class="section-subtitle reveal">
+        Controls mapped to platform layers. These are the “proof artifacts” a reviewer expects.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Identity & Access</h3>
+          <ul class="modal-bullets">
+            <li>JWT auth + role-based access control (RBAC)</li>
+            <li>Tenant-aware authorization (no cross-tenant reads)</li>
+            <li>Admin actions gated behind stronger roles</li>
+            <li>Short-lived tokens + secure refresh strategy</li>
+          </ul>
+          <div class="card-footer">
+            <span class="pill">OAuth/JWT</span>
+            <span class="pill">RBAC</span>
+            <span class="pill">Tenant scope</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Network & Perimeter</h3>
+          <ul class="modal-bullets">
+            <li>WAF + gateway policy enforcement</li>
+            <li>Private endpoints for DB/storage where applicable</li>
+            <li>Segmented subnets (public ingress vs private services)</li>
+            <li>Ingress allow-lists for admin/service traffic</li>
+          </ul>
+          <div class="card-footer">
+            <span class="pill">WAF</span>
+            <span class="pill">VNET/VPC</span>
+            <span class="pill">Private access</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Data & Storage Protection</h3>
+          <ul class="modal-bullets">
+            <li>Encryption at rest + TLS in transit</li>
+            <li>Scoped, time-bound secure share links</li>
+            <li>Metadata separation: file pointers vs PHI fields</li>
+            <li>Analytics access restricted to curated datasets</li>
+          </ul>
+          <div class="card-footer">
+            <span class="pill">Encryption</span>
+            <span class="pill">Time-bound sharing</span>
+            <span class="pill">Governance</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Platform Guardrails</h3>
+          <ul class="modal-bullets">
+            <li>IaC templates enforce secure defaults</li>
+            <li>Policy-as-code checks in CI</li>
+            <li>Secrets in Vault, not environment files</li>
+            <li>Container image scanning + dependency review</li>
+          </ul>
+          <div class="card-footer">
+            <span class="pill">Terraform</span>
+            <span class="pill">Policy-as-code</span>
+            <span class="pill">CI/CD</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="audit" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Audit Logging & Observability</h2>
+      <p class="section-subtitle reveal">
+        Audit trails are the difference between “secure” and “provably secure.”
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>What gets audited</h3>
+          <ul class="modal-bullets">
+            <li>Authentication events (login, token refresh)</li>
+            <li>Access to PHI/PII resources (read/write/download)</li>
+            <li>Share link creation, access, and revocation</li>
+            <li>Admin actions (role changes, policy changes)</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Audit log schema</h3>
+          <p class="modal-text">
+            A consistent schema makes alerting and investigations possible.
+          </p>
+          <ul class="modal-bullets">
+            <li><b>actor_id</b>, <b>actor_role</b>, <b>tenant_id</b></li>
+            <li><b>action</b>, <b>resource_type</b>, <b>resource_id</b></li>
+            <li><b>ip</b>, <b>user_agent</b>, <b>request_id</b></li>
+            <li><b>timestamp</b>, <b>result</b> (success/fail)</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Detection signals</h3>
+          <ul class="modal-bullets">
+            <li>Unusual download volume by a user/tenant</li>
+            <li>Repeated authorization failures</li>
+            <li>Access from unexpected locations</li>
+            <li>Spike in share-link creations</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="footer-cta" style="margin-top: 44px;">
+        <div class="container">
+          <h2 class="reveal">Want the full threat model walkthrough?</h2>
+          <p class="reveal">I can walk through tenant isolation, audit strategy, and hardening steps for production.</p>
+          <div class="btn-group reveal">
+            <a class="btn" href="mailto:mccrayrobert26@gmail.com">Email Me</a>
+            <a class="btn btn-outline" href="../index.html#security">Back to Security Section</a>
+            <a class="btn btn-outline" href="production-roadmap.html">Production Roadmap</a>
+          </div>
+          <p class="footer-mini reveal">© 2026 Robert McCray Jr. | Security Model</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
