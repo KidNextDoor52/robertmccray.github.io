@@ -140,36 +140,35 @@
     <div class="container">
       <h2 class="section-title reveal">Architecture</h2>
       <p class="section-subtitle reveal">
-        A pragmatic design: stable persistence, caching where it matters, and predictable sync/retry strategies.
+        Durable ingestion, retry-safe processing, and an operational data store designed for fast daily workflows.
       </p>
-
-    <!-- REAL DIAGRAM (RTS) -->
-    <div style="margin-top: 18px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
-      <img
-        src="../assets/images/rts-architecture.jpg"
-        alt="RTS (Ready-to-Sell) Architecture Diagram"
-        style="width: 100%; height: auto; display: block;"
-        loading="lazy"
-      />
-    </div>
-
-    
 
       <article class="card reveal">
         <h3>System Flow</h3>
+
         <div class="mini-diagram" style="margin-top: 16px;">
-          <div class="mini-node">Clients<br><span>Ops Users</span></div>
+          <div class="mini-node">Ops Users<br><span>Web Portal</span></div>
           <div class="mini-arrow">→</div>
-          <div class="mini-node">API<br><span>Node.js</span></div>
+          <div class="mini-node">API Layer<br><span>Gateway/API</span></div>
           <div class="mini-arrow">→</div>
-          <div class="mini-node">Cache<br><span>Redis</span></div>
+          <div class="mini-node">Processing<br><span>Async Jobs</span></div>
           <div class="mini-arrow">→</div>
-          <div class="mini-node">DB<br><span>PostgreSQL</span></div>
+          <div class="mini-node">Data Store<br><span>DB + Archive</span></div>
         </div>
 
-        <p style="color: var(--text-muted); margin-top: 16px;">
-          Replace this placeholder with your diagram image:
-          <code>assets/images/rts-arch.png</code>
+        <!-- RTS ARCHITECTURE DIAGRAM -->
+        <div style="margin-top: 18px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
+          <img
+            src="../assets/images/rts-architecture.jpg"
+            alt="RTS (Ready-to-Sell) Architecture Diagram"
+            style="width: 100%; height: auto; display: block;"
+            loading="lazy"
+          />
+        </div>
+
+        <p class="modal-text" style="margin-top: 14px;">
+          Key architecture decision: treat reliability as a workflow problem — durable ingestion, retry-safe processing,
+          and predictable state so operations don’t break when volume spikes.
         </p>
 
         <div class="actions">
