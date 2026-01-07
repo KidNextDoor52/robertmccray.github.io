@@ -10,6 +10,12 @@
 </head>
 <body>
 
+  <!-- Progress bar -->
+  <div class="progress-wrap" aria-hidden="true">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+
   <nav class="nav">
     <div class="nav-inner">
       <a class="nav-brand" href="../index.html#home">RM <span class="nav-brand-sub">Case Study</span></a>
@@ -68,6 +74,64 @@
             <li>Need for consistent state + recovery paths</li>
           </ul>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I BUILT -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">What I Built</h2>
+      <p class="section-subtitle reveal" style="max-width: 920px;">
+        RTS was built to keep contract operations stable at scale: predictable state, safe retries, and fast access for day-to-day users —
+        even when throughput spikes and source data is messy.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Reliable Ingestion + Normalization</h3>
+          <p>
+            High-volume contract records flow through controlled ingestion where data is validated, normalized, and shaped into a consistent
+            operational model that downstream systems can trust.
+          </p>
+          <div class="card-footer">
+            <span class="pill">Validation</span>
+            <span class="pill">Normalization</span>
+            <span class="pill">Durable ingest</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Retry-Safe Processing</h3>
+          <p>
+            Processing is designed for retries and partial failures: idempotent operations, safe state transitions, and clear recovery paths so
+            work can resume without corrupting contract state.
+          </p>
+          <div class="card-footer">
+            <span class="pill">Idempotency</span>
+            <span class="pill">Retries</span>
+            <span class="pill">Recovery</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Fast Operational Access</h3>
+          <p>
+            The system supports fast reads for daily ops: optimized query paths, predictable indexing strategy, and caching only where it creates
+            real value (hot paths / repeated lookups).
+          </p>
+          <div class="card-footer">
+            <span class="pill">Query tuning</span>
+            <span class="pill">Indexes</span>
+            <span class="pill">Hot paths</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="btn-group reveal" style="margin-top: 26px;">
+        <a class="btn btn-outline" href="#architecture">View Architecture</a>
+        <a class="btn btn-outline" href="#results">View Results</a>
+        <a class="btn btn-outline" href="#lessons">Lessons Learned</a>
       </div>
     </div>
   </section>
